@@ -1,3 +1,14 @@
+### Folder Structure
+
+- app - contains app-wide setup and layout that depends on all the other folders.
+- common - contains truly generic and reusable utilities and components (hooks, generic components, utils).
+- features - has folders that contain all functionality related to a specific feature 
+
+
+### Bugs to watch
+// Bug https://github.com/rt2zz/redux-persist/issues/1169
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +79,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
