@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-import { Loader } from '../../common/loader/loader.component';
+import { Loader } from '../../common/loader';
 
 import { selectIsPokemonFetching, selectSelectedPokemonObject } from '../../modules/pokemon/state/pokemon.selectors';
 import { fetchPokemonStart } from '../../modules/pokemon/state/pokemon.actions';

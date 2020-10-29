@@ -6,7 +6,7 @@ import { GlobalStyle } from './styles/global.styles';
 
 import { Header } from './app/header/header.component';
 import ErrorBoundary from './common/error-boundary/error-boundary.component';
-import { Loader } from './common/loader/loader.component';
+import { Loader } from './common/loader';
 
 import { ContentContainer } from './App.styles';
 
