@@ -1,6 +1,6 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit'
-import { POKEMON_API } from '../../../environment/environment'
+import { env } from '../../../environment/environment'
 
 import { 
   fetchAllPokemonSuccess, 
@@ -19,7 +19,7 @@ export function* fetchAllPokemonAsync() {
   yield console.log('fetchAllPokemonAsync fired');
   try {
     const response = yield fetch(
-      POKEMON_API, {
+      env.POKEMON_API, {
         method: 'POST',
         headers: {
           'content-type': 'application/json;charset=UTF-8'
@@ -47,7 +47,7 @@ export function* fetchPokemonAsync(action: PayloadAction) {
 
 try {
     const response = yield fetch(
-      POKEMON_API, {
+      env.POKEMON_API, {
         method: 'POST',
         headers: {
           'content-type': 'application/json;charset=UTF-8'

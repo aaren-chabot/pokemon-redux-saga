@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-import { Loader } from '../../common/loader/loader.component';
+import { Loader } from '../../common/loader';
 import { PokemonSearchCard } from '../../modules/pokemon/pokemon-search-card/pokemon-search-card.component';
 import { SearchInput } from '../../modules/pokemon/search-input/search-input.component';
 
