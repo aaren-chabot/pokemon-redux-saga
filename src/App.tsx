@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { GlobalResetStyles } from './styles/reset.styles';
-import { GlobalStyle } from './styles/global.styles';
+import { GlobalStyle, GlobalResetStyles } from './styles';
 
 import { Header } from './app/header/header.component';
 import ErrorBoundary from './common/error-boundary/error-boundary.component';
