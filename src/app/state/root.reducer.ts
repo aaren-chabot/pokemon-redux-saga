@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { pokemonReducer } from '../modules/pokemon/state/pokemon.reducer';
+import { pokemonReducer } from '../../modules/pokemon/state/pokemon.reducer';
 import { IRootState } from './root.types';
 
 const persistConfig = {
