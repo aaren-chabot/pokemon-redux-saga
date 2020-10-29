@@ -8,7 +8,8 @@
 
 
 ### Bugs to watch
-// Bug https://github.com/rt2zz/redux-persist/issues/1169
+- Bug https://github.com/rt2zz/redux-persist/issues/1169
+- https://github.com/facebook/create-react-app/issues/9868
 
 
 # Getting Started with Create React App
