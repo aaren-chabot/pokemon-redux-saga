@@ -1,3 +1,3 @@
 export const DEVEnv = {
-  current: 'DEV'
+  CURRENT_ENV: 'DEV'
 }

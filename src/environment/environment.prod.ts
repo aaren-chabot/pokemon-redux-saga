@@ -1,3 +1,3 @@
 export const PRODEnv = {
-  current: 'PROD'
+  CURRENT_ENV: 'PROD'
 }

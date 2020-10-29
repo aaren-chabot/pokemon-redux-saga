@@ -1,3 +1,3 @@
 export const QAEnv = {
-  current: 'QA'
+  CURRENT_ENV: 'QA'
 }
