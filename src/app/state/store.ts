@@ -8,13 +8,13 @@ import * as createLogger from "redux-logger";
 
 import { env } from '../../environment/environment';
 
-const logger = (createLogger as any)(); // https://github.com/LogRocket/redux-logger/issues/89
+// const logger = (createLogger as any)(); // https://github.com/LogRocket/redux-logger/issues/89
 const sagaMiddleware = createSagaMiddleware();
 
 let middlewares = [sagaMiddleware];
 
 if (env.IS_LOGGING_ENABLED) {
-  middlewares.push(logger);
+  middlewares.push((createLogger as any)());
 };
 
 const store: Store<any> = createStore(
