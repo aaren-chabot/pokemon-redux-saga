@@ -1,7 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useLayoutEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import { env } from './environment/environment';
+import { fetchAllPokemonStart } from './modules/pokemon/state/pokemon.actions';
 
 import { Header } from './app/header/header.component';
 import ErrorBoundary from './common/error-boundary/error-boundary.component';
@@ -15,6 +17,11 @@ const PokemonDetailPage = lazy<any>(() => import('./views/pokemon-detail/pokemon
 const ViewedHistoryPage = lazy<any>(() => import('./views/viewed-history/viewed-history.page').then(res => ({default: res.ViewedHistoryPage})));
 
 function App() {
+  const dispatch = useDispatch();
+  useLayoutEffect(() => {
+    dispatch(fetchAllPokemonStart());
+  }, [dispatch]);
+
   console.log('Env:', env.CURRENT_ENV);
   return (
     <div>
