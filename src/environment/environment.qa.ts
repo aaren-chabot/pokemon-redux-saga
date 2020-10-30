@@ -1,3 +1,4 @@
 export const QAEnv = {
-  CURRENT_ENV: 'QA'
-}
+  CURRENT_ENV: 'QA',
+  ENABLE_LOGGING: true
+};

@@ -3,8 +3,9 @@ import { QAEnv } from './environment.qa';
 import { PRODEnv } from './environment.prod';
 
 let env = {
-  current: 'base',
-  POKEMON_API: 'https://graphql-pokemon2.vercel.app/'
+  CURRENT_ENV: 'base',
+  POKEMON_API: 'https://graphql-pokemon2.vercel.app/',
+  
 };
 
 if (process.env.NODE_ENV === 'development') {

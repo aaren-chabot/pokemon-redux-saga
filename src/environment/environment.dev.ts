@@ -1,3 +1,4 @@
 export const DEVEnv = {
-  CURRENT_ENV: 'DEV'
-}
+  CURRENT_ENV: 'DEV',
+  ENABLE_LOGGING: true
+};
