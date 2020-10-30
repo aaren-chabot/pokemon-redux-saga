@@ -47,7 +47,7 @@ export const PokemonDetailPage = () => {
               Special Attacks:
               {pokemon.attacks.special.map(
                 attack => 
-                  <PokemonDetailListItem>
+                  <PokemonDetailListItem key={attack.name}>
                     {attack.name} - {attack.type} - {attack.damage}
                   </PokemonDetailListItem>
                 )
@@ -60,19 +60,27 @@ export const PokemonDetailPage = () => {
             <PokemonDetail>
               Types:
               {pokemon.types.map(
-                type => <PokemonDetailListItem>{type}</PokemonDetailListItem>
+                type => <PokemonDetailListItem key={type}>{type}</PokemonDetailListItem>
               )}
             </PokemonDetail>
             <PokemonDetail>
               Resistant:
               {pokemon.resistant.map(
-                resistant => <PokemonDetailListItem>{resistant}</PokemonDetailListItem>
+                resistant => 
+                  <PokemonDetailListItem 
+                    key={resistant}>
+                    {resistant}
+                  </PokemonDetailListItem>
               )}
             </PokemonDetail>
             <PokemonDetail>
               Weaknesses:
               {pokemon.weaknesses.map(
-                weakness => <PokemonDetailListItem>{weakness}</PokemonDetailListItem>
+                weakness => 
+                  <PokemonDetailListItem 
+                    key={weakness}>
+                    {weakness}
+                  </PokemonDetailListItem>
               )}
             </PokemonDetail>
           </PokemonDetailContainerRight>
