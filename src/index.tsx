@@ -4,18 +4,31 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { IntlProvider } from 'react-intl';
 
 import App from './App';
+import { env } from './environment/environment';
 import { store, persistor } from './app/state';
+import { enMessages, frMessages } from './app/locales';
+
+const getLocaleMessages = (locale: string) => {
+  if (locale === 'en') return enMessages
+  if (locale === 'fr') return frMessages
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <PersistGate persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Router>
+      <IntlProvider 
+        locale={env.DEFAULT_LOCALE} 
+        defaultLocale={env.DEFAULT_LOCALE} 
+        messages={getLocaleMessages(env.DEFAULT_LOCALE)}>
+        <Router>
+          <PersistGate persistor={persistor}>
+            <App />
+          </PersistGate>
+        </Router>
+      </IntlProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

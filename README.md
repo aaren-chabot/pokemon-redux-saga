@@ -1,7 +1,7 @@
 ### Folder Structure
 
-- app: contains app-wide setup and layout that depends on all the other folders.
-- common: contains truly generic and reusable utilities and components (hooks, generic components, utils).
+- app: contains app-wide setup and layout, (header, footer, global state, locale).
+- common: contains truly generic and *reusable utilities and components (hooks, generic components, utils).
 - modules: has folders that contain all functionality related to a specific feature.
 - style: global styles and themeing.
 - views: Top level components to manage component composition.
