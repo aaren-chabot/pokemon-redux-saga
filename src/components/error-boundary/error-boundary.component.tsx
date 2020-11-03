@@ -10,7 +10,7 @@ interface State {
   isError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+export class ErrorBoundary extends Component<Props, State> {
   static defaultProps = {
     errorMessage: 'Sorry there is an error at this time.'
   }
@@ -45,5 +45,3 @@ class ErrorBoundary extends Component<Props, State> {
     return children;
   }
 }
-
-export {ErrorBoundary};

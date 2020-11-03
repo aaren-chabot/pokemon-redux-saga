@@ -1,15 +1,16 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setLocale, selectCurrentLocale } from '../../state/locale';
 import { LangSelectEl, LangOptionEl } from './lang-select.styles';
  
 export const LangSelect = () => {
-  // const dispatch = useDispatch();
-  // const lang = useSelector();
-  const lang = 'en';
+  const dispatch = useDispatch();
+  const lang = useSelector(selectCurrentLocale);
 
-   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    console.log('test', event.target.value)
+   const handleChange = (event: React.ChangeEvent<{ value: any }>) => {
+    console.log('test', event.target.value);
+    dispatch(setLocale(event.target.value));
   };
 
   return (

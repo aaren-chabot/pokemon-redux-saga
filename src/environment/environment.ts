@@ -1,8 +1,9 @@
 import { DEVEnv } from './environment.dev';
 import { QAEnv } from './environment.qa';
 import { PRODEnv } from './environment.prod';
+import { IEnv } from './environment.types';
 
-let env = {
+let env: IEnv = {
   CURRENT_ENV: 'base',
   POKEMON_API: 'https://graphql-pokemon2.vercel.app/',
   IS_LOGGING_ENABLED: true,

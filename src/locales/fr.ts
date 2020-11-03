@@ -1,5 +1,5 @@
-import { IAppLocale } from './locale';
+import { IAppLocale } from './locale.types';
 
-export const frMessages: IAppLocale = {
+export const messages: IAppLocale = {
   "home.welcome": "fr-welcome"
 };
