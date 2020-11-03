@@ -1,10 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { PokemonSearchCard } from '../../modules/pokemon/pokemon-search-card/pokemon-search-card.component';
-
+import { PokemonSearchCard } from '../../components';
 import { selectCachedPokemonToArray } from '../../state/pokemon';
-
 import { ContentContainer } from './viewed-history.styles';
 
 export const ViewedHistoryPage = () => {

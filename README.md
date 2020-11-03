@@ -1,11 +1,9 @@
 ### Folder Structure
-
-- app: contains app-wide setup and layout, (header, footer, global state, locale).
-- common: contains truly generic and *reusable utilities and components (hooks, generic components, utils).
-- modules: has folders that contain all functionality related to a specific feature.
-- style: global styles and themeing.
-- views: Top level components to manage component composition.
-
+- components: 'dumb' shared components.
+- state: All application state management.
+- style: Global styles and themeing.
+- views: Top level components to manage routing and component composition.
+- locales: Localization variable files.
 
 ### Bugs to watch
 - Bug https://github.com/rt2zz/redux-persist/issues/1169

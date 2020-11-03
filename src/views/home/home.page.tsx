@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 
-import { Loader } from '../../common/loader';
-import { PokemonSearchCard } from '../../modules/pokemon/pokemon-search-card/pokemon-search-card.component';
-import { SearchInput } from '../../modules/pokemon/search-input/search-input.component';
-
+import { Loader, PokemonSearchCard, SearchInput } from '../../components';
 import { selectPokemonList, selectIsPokemonFetching } from '../../state/pokemon';
-
 import { SearchResultsContainer, SearchInputContainer } from './home.styles';
 
 export const HomePage = () => {
