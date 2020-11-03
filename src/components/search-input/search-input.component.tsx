@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 export interface ISearchInput {
   search: string;
   handleChange: Function;
+  placeholder: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -16,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const SearchInput = ({ search, handleChange }: ISearchInput) => {
+export const SearchInput = ({ search, handleChange, placeholder = '' }: ISearchInput) => {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField 
-        label="Filter Pokemon"
+        label={placeholder}
         autoFocus={true}
         defaultValue={search}
         onChange={(e) => handleChange(e.target.value)}

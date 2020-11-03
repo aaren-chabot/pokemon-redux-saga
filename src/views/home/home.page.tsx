@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useIntl } from 'react-intl';
 
+import { useRenderLocale } from '../../util';
 import { Loader, PokemonSearchCard, SearchInput } from '../../components';
 import { selectPokemonList, selectIsPokemonFetching } from '../../state/pokemon';
 import { SearchResultsContainer, SearchInputContainer } from './home.styles';
@@ -9,18 +9,22 @@ import { SearchResultsContainer, SearchInputContainer } from './home.styles';
 export const HomePage = () => {
   const pokemonList = useSelector(selectPokemonList);
   const isFetching = useSelector(selectIsPokemonFetching);
-  const intl = useIntl();
   const [search, setSearch] = useState('');
+  const [title, searchPlaceholder] = useRenderLocale(['home.title', 'home.search-placeholder']);
 
   if (isFetching) {
     return <Loader />
-  }
+  };
 
   return (
     <>
-      <h1>{intl.formatMessage({id: 'home.welcome'})}</h1>
+      <h1>{title}</h1>
       <SearchInputContainer>
-        <SearchInput search={search} handleChange={setSearch} />
+        <SearchInput 
+          search={search} 
+          handleChange={setSearch} 
+          placeholder={searchPlaceholder} 
+        />
       </SearchInputContainer>
       <SearchResultsContainer>
         { pokemonList

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 import { Loader } from '../../components';
 import { fetchPokemonStart, selectIsPokemonFetching, selectSelectedPokemonObject } from '../../state/pokemon';
+import { useRenderLocale } from '../../util';
 
 import {
   ContentContainer,
@@ -18,6 +19,11 @@ import {
 
 export const PokemonDetailPage = () => {
   const dispatch = useDispatch();
+  const [title, pSubheader, pokemonLabel, specialAttackLabel, 
+    sSubheader, typesLabel, resLabel, weaknessLabel] = useRenderLocale(
+    ['detail.title', 'detail.primarySubheader', 'detail.details.pokemon', 
+    'detail.details.special-attack', 'detail.secondarySubheader', 'detail.details.types', 
+    'detail.details.resistant', 'detail.details.weaknesses']);
   const {id: pokemonName} = useParams<{id: string}>();
   const isFetching = useSelector(selectIsPokemonFetching);
   const pokemon = useSelector(selectSelectedPokemonObject);
@@ -32,17 +38,17 @@ export const PokemonDetailPage = () => {
 
   return (
     <>
-      <h1>Pokemon Detail - {pokemonName}</h1>
+      <h1>{title} - {pokemonName}</h1>
       { pokemon &&
         <ContentContainer>
           <PokemonImageContainer>
             <img src={pokemon.image} alt={pokemonName} />
           </PokemonImageContainer>
           <PokemonDetailContainer>
-            <PokemonDetailHeading>Pokemon Details:</PokemonDetailHeading>
-            <PokemonDetail>Pokemon: {pokemon.name} ({pokemon.classification}) - {pokemon.number}</PokemonDetail>
+            <PokemonDetailHeading>{pSubheader}:</PokemonDetailHeading>
+            <PokemonDetail>{pokemonLabel}: {pokemon.name} ({pokemon.classification}) - {pokemon.number}</PokemonDetail>
             <PokemonDetail>
-              Special Attacks:
+              {specialAttackLabel}:
               {pokemon.attacks.special.map(
                 attack => 
                   <PokemonDetailListItem key={attack.name}>
@@ -54,15 +60,15 @@ export const PokemonDetailPage = () => {
 
           </PokemonDetailContainer>
           <PokemonDetailContainerRight>
-            <PokemonDetailHeading>Battle Info:</PokemonDetailHeading>
+            <PokemonDetailHeading>{sSubheader}:</PokemonDetailHeading>
             <PokemonDetail>
-              Types:
+              {typesLabel}:
               {pokemon.types.map(
                 type => <PokemonDetailListItem key={type}>{type}</PokemonDetailListItem>
               )}
             </PokemonDetail>
             <PokemonDetail>
-              Resistant:
+              {resLabel}:
               {pokemon.resistant.map(
                 resistant => 
                   <PokemonDetailListItem 
@@ -72,7 +78,7 @@ export const PokemonDetailPage = () => {
               )}
             </PokemonDetail>
             <PokemonDetail>
-              Weaknesses:
+              {weaknessLabel}:
               {pokemon.weaknesses.map(
                 weakness => 
                   <PokemonDetailListItem 

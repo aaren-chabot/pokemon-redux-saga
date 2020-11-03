@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 
 import { env } from '../../environment/environment';
 import { LangSelect } from '../.';
+import { useRenderLocale } from '../../util';
 
 import {
   HeaderContainer
 } from './header.styles';
 
 export const Header = () => {
+  const [home, history, api] = useRenderLocale(['navigation.home', 'navigation.history', 'navigation.pokemon-api']);
+
   return (
     <HeaderContainer>
-      <Link to="/">Home</Link>
-      <Link to="/search-history">Viewed History</Link>
-      <a href={env.POKEMON_API}>Pokemon Api</a>
+      <Link to="/">{home}</Link>
+      <Link to="/search-history">{history}</Link>
+      <a href={env.POKEMON_API}>{api}</a>
       <LangSelect />
     </HeaderContainer>
   )

@@ -1,16 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { useRenderLocale } from '../../util';
 import { PokemonSearchCard } from '../../components';
 import { selectCachedPokemonToArray } from '../../state/pokemon';
 import { ContentContainer } from './viewed-history.styles';
 
 export const ViewedHistoryPage = () => {
+  const [title, defaultLabel] = useRenderLocale(['history.title', 'history.default']);
   const viewedPokemon = useSelector(selectCachedPokemonToArray);
 
   return (
     <>
-      <h1>Viewed History</h1>
+      <h1>{title}</h1>
       <ContentContainer>
         {viewedPokemon.length > 0
           ? viewedPokemon.map(
@@ -19,7 +21,7 @@ export const ViewedHistoryPage = () => {
                 key={pokemon.number} 
                 pokemon={pokemon}
               />)
-          : <p>No viewed Pokemon yet</p>
+          : <p>{defaultLabel}</p>
         }
       </ContentContainer>
     </>

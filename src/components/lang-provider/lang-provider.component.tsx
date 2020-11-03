@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +7,7 @@ import { IApplicationLocales } from '../../state/locale';
 import { env } from '../../environment/environment';
 import { selectCurrentLocale } from '../../state/locale';
 
-export const LangProvider = ({ children }: { children: ReactElement }) => {
+export const LangProvider = ({ children }: { children: ReactNode }) => {
   const lang = useSelector(selectCurrentLocale);
 
   const getLocaleMessages = (locale: IApplicationLocales): IAppLocale => {
@@ -22,7 +22,7 @@ export const LangProvider = ({ children }: { children: ReactElement }) => {
     <IntlProvider 
       locale={env.DEFAULT_LOCALE} 
       defaultLocale={env.DEFAULT_LOCALE} 
-      messages={getLocaleMessages(lang)}>
+      messages={(getLocaleMessages(lang))}>
         {children}
     </IntlProvider>
   );
