@@ -2,13 +2,13 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import { persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './root.reducer';
-import { rootSaga } from "./root.saga";
 import * as reduxLogger from "redux-logger";
 
-import { env } from '../../environment/environment';
+import { env } from '../environment/environment';
+import { rootReducer } from ".";
+import { rootSaga } from "./root.saga";
 
-const logger = (reduxLogger.createLogger as any)(); // https://github.com/LogRocket/redux-logger/issues/89
+const logger = (reduxLogger.createLogger as any)();
 const sagaMiddleware = createSagaMiddleware();
 
 let middlewares = [sagaMiddleware];
@@ -18,7 +18,7 @@ if (env.IS_LOGGING_ENABLED) {
 };
 
 const store: Store<any> = createStore(
-  rootReducer, 
+  rootReducer.default, 
   composeWithDevTools(
     applyMiddleware(...middlewares)
   )

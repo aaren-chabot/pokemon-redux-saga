@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IRootState } from '../../../app/state/root.types';
+import { IRootState } from '../.';
 
 const selectPokemon = (state: IRootState) => state.pokemon;
 

@@ -1,19 +1,46 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
-import { PayloadAction } from '@reduxjs/toolkit'
-import { env } from '../../../environment/environment'
+import { env } from '../../environment/environment'
 
-import { 
-  fetchAllPokemonSuccess, 
-  fetchAllPokemonFailure, 
-  fetchPokemonSuccess, 
-  fetchPokemonFailure
-} from './pokemon.actions';
+import {
+  fetchAllPokemonSuccess,
+  fetchAllPokemonFailure,
+  fetchPokemonSuccess,
+  fetchPokemonFailure,
+  IPokemonActionEnum,
+  IFetchPokemonStart
+} from '.';
 
-import { 
-  PokemonActionTypes, 
-  allPokemonQuery,
-  pokemonQuery
-} from './pokemon.types';
+export const pokemonQuery = `
+    query PokemonInfo($name: String) {
+      pokemon(name: $name) {
+        id
+        number
+        name
+        image
+        classification
+        types
+        resistant
+        weaknesses
+        attacks {
+          special {
+            name
+            type
+            damage
+          }
+        }
+      }
+    }
+  `;
+
+  export const allPokemonQuery = `
+    query PokemonInfo($first: Int!) {
+      pokemons(first: $first) {
+        image
+        name
+    		number
+      }
+    }
+  `;
 
 export function* fetchAllPokemonAsync() {
   yield console.log('fetchAllPokemonAsync fired');
@@ -42,7 +69,7 @@ export function* fetchAllPokemonAsync() {
   }
 }
 
-export function* fetchPokemonAsync(action: PayloadAction) {
+export function* fetchPokemonAsync(action: IFetchPokemonStart) {
   yield console.log('fetchPokemonAsync fired');
 
 try {
@@ -72,14 +99,14 @@ try {
 
 export function* fetchAllPokemonStart() {
 	yield takeLatest(
-		PokemonActionTypes.FETCH_ALL_POKEMON_START,
+		IPokemonActionEnum.FETCH_ALL_POKEMON_START,
 		fetchAllPokemonAsync
 	);
 }
 
 export function* fetchPokemonStart() {
 	yield takeLatest(
-    PokemonActionTypes.FETCH_POKEMON_START,
+    IPokemonActionEnum.FETCH_POKEMON_START,
     fetchPokemonAsync
 	);
 }

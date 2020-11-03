@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { PokemonSearchCard } from '../../modules/pokemon/pokemon-search-card/pokemon-search-card.component';
 
-import { selectCachedPokemonToArray } from '../../modules/pokemon/state/pokemon.selectors';
+import { selectCachedPokemonToArray } from '../../state/pokemon';
 
 import { ContentContainer } from './viewed-history.styles';
 

@@ -8,7 +8,7 @@ import { IntlProvider } from 'react-intl';
 
 import App from './App';
 import { env } from './environment/environment';
-import { store, persistor } from './app/state';
+import { store, persistor } from './state';
 import { enMessages, frMessages } from './app/locales';
 
 const getLocaleMessages = (locale: string) => {

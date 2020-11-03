@@ -1,9 +1,9 @@
 import { all, call } from 'redux-saga/effects';
 
-import { pokemonSaga } from '../../modules/pokemon/state/pokemon.saga';
+import { pokemonSaga } from './pokemon';
 
 export function* rootSaga() {
 	yield all([
 		call(pokemonSaga),
-	])
-}
+	]);
+};

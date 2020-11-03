@@ -6,7 +6,7 @@ import { Loader } from '../../common/loader';
 import { PokemonSearchCard } from '../../modules/pokemon/pokemon-search-card/pokemon-search-card.component';
 import { SearchInput } from '../../modules/pokemon/search-input/search-input.component';
 
-import { selectPokemonList, selectIsPokemonFetching } from '../../modules/pokemon/state/pokemon.selectors';
+import { selectPokemonList, selectIsPokemonFetching } from '../../state/pokemon';
 
 import { SearchResultsContainer, SearchInputContainer } from './home.styles';
 

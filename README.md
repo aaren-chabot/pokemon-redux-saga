@@ -10,6 +10,7 @@
 ### Bugs to watch
 - Bug https://github.com/rt2zz/redux-persist/issues/1169
 - https://github.com/facebook/create-react-app/issues/9868
+- https://github.com/LogRocket/redux-logger/issues/89
 
 
 # Getting Started with Create React App

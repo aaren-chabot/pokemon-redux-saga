@@ -3,9 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { env } from './environment/environment';
-import { fetchAllPokemonStart } from './modules/pokemon/state/pokemon.actions';
+import { fetchAllPokemonStart } from './state/pokemon';
 
-import { Header } from './app/header/header.component';
+import { Header } from './app/header';
 import ErrorBoundary from './common/error-boundary/error-boundary.component';
 import { Loader } from './common/loader';
 
@@ -18,6 +18,7 @@ const ViewedHistoryPage = lazy<any>(() => import('./views/viewed-history/viewed-
 
 function App() {
   const dispatch = useDispatch();
+  
   useLayoutEffect(() => {
     dispatch(fetchAllPokemonStart());
   }, [dispatch]);

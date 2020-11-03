@@ -2,17 +2,19 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { pokemonReducer } from '../../modules/pokemon/state/pokemon.reducer';
-import { IRootState } from './root.types';
+import { IRootState } from '.';
+import { pokemonReducer } from './pokemon';
+import { localeReducer } from './locale';
 
 const persistConfig = {
 	key: 'pokemon',
 	storage,
-	whitelist: ['pokemon']
+	whitelist: ['pokemon', 'locale']
 };
 
 const rootReducer = combineReducers<IRootState>({
-  pokemon: pokemonReducer
+  pokemon: pokemonReducer,
+  locale: localeReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
