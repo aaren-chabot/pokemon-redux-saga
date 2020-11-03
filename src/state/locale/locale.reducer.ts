@@ -3,8 +3,16 @@ import { env } from '../../environment/environment';
 import { ensureNever } from '../root.actions';
 import { ILocaleState, ILocaleActionEnum, LocaleActionTypes, ISetLocaleAction, ISetDefaultLocaleAction } from '.';
 
+const initLocale = () => {
+  if (window) {
+    if (navigator.language.includes('en')) return 'en';
+    if (navigator.language.includes('fr')) return 'fr';
+  }
+  return env.DEFAULT_LOCALE;
+};
+
 export const initLocaleState: ILocaleState = {
-  currentLocale: env.DEFAULT_LOCALE
+  currentLocale: initLocale()
 };
 
 const setLocale = (state: ILocaleState, action: ISetLocaleAction): ILocaleState => 
