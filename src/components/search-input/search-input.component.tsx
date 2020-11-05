@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -26,7 +26,7 @@ export const SearchInput: FC<ISearchInput> = ({ search, handleChange, placeholde
         label={placeholder}
         autoFocus={true}
         defaultValue={search}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e: ChangeEvent) => handleChange(e)}
       />
     </form>
   );

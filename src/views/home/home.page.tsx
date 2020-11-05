@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react';
+import React, { useState, FC, ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useRenderLocale } from '../../util';
@@ -14,6 +14,10 @@ export const HomePage: FC<IHomePage> = () => {
   const [search, setSearch] = useState('');
   const [title, searchPlaceholder] = useRenderLocale(['home.title', 'home.search-placeholder']);
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value)
+  }
+
   if (isFetching) {
     return <Loader />
   };
@@ -24,7 +28,7 @@ export const HomePage: FC<IHomePage> = () => {
       <SearchInputContainer>
         <SearchInput 
           search={search} 
-          handleChange={setSearch} 
+          handleChange={handleInputChange} 
           placeholder={searchPlaceholder} 
         />
       </SearchInputContainer>
