@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+export interface ILoader {};
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const Loader = () => {
+export const Loader: FC<ILoader> = () => {
   const classes = useStyles();
 
   return (

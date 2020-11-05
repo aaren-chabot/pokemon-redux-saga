@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 
-interface IPokemonSearchCard {
+export interface IPokemonSearchCard {
   pokemon: {
     name: string;
     image: string;
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const PokemonSearchCard = ({ pokemon }: IPokemonSearchCard) => {
+export const PokemonSearchCard: FC<IPokemonSearchCard> = ({ pokemon }) => {
   const classes = useStyles();
 
   return (

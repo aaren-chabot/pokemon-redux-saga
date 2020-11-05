@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useRenderLocale } from '../../util';
@@ -6,7 +6,9 @@ import { PokemonSearchCard } from '../../components';
 import { selectCachedPokemonToArray } from '../../state/pokemon';
 import { ContentContainer } from './viewed-history.styles';
 
-export const ViewedHistoryPage = () => {
+export interface IViewedHistoryPage {};
+
+export const ViewedHistoryPage: FC<IViewedHistoryPage> = () => {
   const [title, defaultLabel] = useRenderLocale(['history.title', 'history.default']);
   const viewedPokemon = useSelector(selectCachedPokemonToArray);
 

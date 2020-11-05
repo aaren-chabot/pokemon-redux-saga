@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setLocale, selectCurrentLocale } from '../../state/locale';
 import { LangSelectEl, LangOptionEl } from './lang-select.styles';
- 
-export const LangSelect = () => {
+
+export interface ILangSelect {};
+
+export const LangSelect: FC<ILangSelect> = () => {
   const dispatch = useDispatch();
   const lang = useSelector(selectCurrentLocale);
 

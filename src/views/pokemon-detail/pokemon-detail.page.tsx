@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
@@ -17,7 +17,9 @@ import {
   PokemonDetailListItem
 } from './pokemon-detail.styles';
 
-export const PokemonDetailPage = () => {
+export interface IPokemonDetailPage {};
+
+export const PokemonDetailPage: FC<IPokemonDetailPage> = () => {
   const dispatch = useDispatch();
   const [title, pSubheader, pokemonLabel, specialAttackLabel, 
     sSubheader, typesLabel, resLabel, weaknessLabel] = useRenderLocale(

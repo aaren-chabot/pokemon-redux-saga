@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { FC } from 'react';
 import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +7,9 @@ import { IApplicationLocales } from '../../state/locale';
 import { env } from '../../environment/environment';
 import { selectCurrentLocale } from '../../state/locale';
 
-export const LangProvider = ({ children }: { children: ReactNode }) => {
+export interface ILangProvider {}
+
+export const LangProvider: FC<ILangProvider> = ({ children }) => {
   const lang = useSelector(selectCurrentLocale);
 
   const getLocaleMessages = (locale: IApplicationLocales): IAppLocale => {

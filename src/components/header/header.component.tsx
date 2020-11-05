@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from "react-router-dom";
 
 import { env } from '../../environment/environment';
@@ -9,7 +9,9 @@ import {
   HeaderContainer
 } from './header.styles';
 
-export const Header = () => {
+export interface IHeader {};
+
+export const Header: FC<IHeader> = () => {
   const [home, history, api] = useRenderLocale(['navigation.home', 'navigation.history', 'navigation.pokemon-api']);
 
   return (

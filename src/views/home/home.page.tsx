@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useRenderLocale } from '../../util';
@@ -6,7 +6,9 @@ import { Loader, PokemonSearchCard, SearchInput } from '../../components';
 import { selectPokemonList, selectIsPokemonFetching } from '../../state/pokemon';
 import { SearchResultsContainer, SearchInputContainer } from './home.styles';
 
-export const HomePage = () => {
+export interface IHomePage {};
+
+export const HomePage: FC<IHomePage> = () => {
   const pokemonList = useSelector(selectPokemonList);
   const isFetching = useSelector(selectIsPokemonFetching);
   const [search, setSearch] = useState('');

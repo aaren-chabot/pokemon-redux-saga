@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const SearchInput = ({ search, handleChange, placeholder = '' }: ISearchInput) => {
+export const SearchInput: FC<ISearchInput> = ({ search, handleChange, placeholder = '' }) => {
   const classes = useStyles();
 
   return (
